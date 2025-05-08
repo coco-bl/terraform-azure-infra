@@ -46,3 +46,10 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "app_insights_name"{
+  description = "app_insights_name"
+  type        = string
+}
+
+
