@@ -19,9 +19,9 @@ This project deploys a secure and scalable **Azure App Service environment** usi
 |----------------|-------------|
 | ![pipeline](images/pipeline.PNG) | ![azure](images/appservice.PNG) |
 
-| Network Resources |
-|-------------------|
-| ![network](images/networkresources.PNG) |
+| Network Resources | Backend Storage |
+|-------------------|-----------------|
+| ![network](images/networkresources.PNG) | ![backend](images/backend.PNG) |
 
 
 ---
