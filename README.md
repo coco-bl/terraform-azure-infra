@@ -2,7 +2,7 @@
 
 | Module          | Status |
 |------------------|--------|
-| Network          | [![Network](https://dev.azure.com/YOUR_ORG/YOUR_PROJECT/_apis/build/status/Terraform%20-%20Network?branchName=main)](https://dev.azure.com/YOUR_ORG/YOUR_PROJECT/_build/latest?definitionId=ID) |
+| Network          | [![Build Status](https://dev.azure.com/AbfVentures/Website01/_apis/build/status%2FNetwork?branchName=main)](https://dev.azure.com/AbfVentures/Website01/_build/latest?definitionId=5&branchName=main) |
 | App Service      | [[![Build Status](https://dev.azure.com/AbfVentures/Website01/_apis/build/status%2FApp_Service?branchName=main)](https://dev.azure.com/AbfVentures/Website01/_build/latest?definitionId=6&branchName=main)|
 | Resource Group   | ... |
 | Storage Account  | ... |
