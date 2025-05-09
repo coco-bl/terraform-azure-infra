@@ -7,7 +7,7 @@
 | Resource Group   | [![Build Status](https://dev.azure.com/AbfVentures/Website01/_apis/build/status%2FResource_Group?branchName=main)](https://dev.azure.com/AbfVentures/Website01/_build/latest?definitionId=8&branchName=main) |
 | Storage Account  |[![Build Status](https://dev.azure.com/AbfVentures/Website01/_apis/build/status%2FStorage_Account?branchName=main)](https://dev.azure.com/AbfVentures/Website01/_build/latest?definitionId=7&branchName=main) |
 
-This project deploys a secure and scalable **Azure App Service environment** using **Terraform** and **Azure DevOps CI/CD**. It includes:
+This project deploys a secure and scalable Infrastructure using **Terraform** and **Azure DevOps CI/CD**. It includes:
 
 - A delegated Virtual Network (VNet) with subnet
 - An App Service with subnet integration
