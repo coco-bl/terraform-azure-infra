@@ -22,15 +22,18 @@ stages:
   jobs:
   - job: Terraform
     steps:
-    - task: TerraformInstaller@0
+    - task: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller@0
+      displayName: 'Install Terraform'
       inputs:
-        terraformVersion: 'latest'
+      terraformVersion: 'latest'
 
-    - task: TerraformTaskV4@0
+
+    - task: TerraformTaskV4@4
       displayName: 'Terraform Init'
       inputs:
         provider: 'azurerm'
         command: 'init'
+        backendType: 'azurerm'
         backendServiceArm: $(azureServiceConnection)
         backendAzureRmResourceGroupName: $(backendResourceGroup)
         backendAzureRmStorageAccountName: $(backendStorageAccount)
@@ -38,24 +41,26 @@ stages:
         backendAzureRmKey: $(backendKey)
         workingDirectory: 'network'
 
-    - task: TerraformTaskV4@0
+    - task: TerraformTaskV4@4
       displayName: 'Terraform Validate'
       inputs:
         provider: 'azurerm'
         command: 'validate'
         workingDirectory: 'network'
 
-    - task: TerraformTaskV4@0
+    - task: TerraformTaskV4@4
       displayName: 'Terraform Plan'
       inputs:
         provider: 'azurerm'
         command: 'plan'
         workingDirectory: 'network'
+        commandOptions: '-var-file="dev.tfvars"'
 
-    - task: TerraformTaskV4@0
+    - task: TerraformTaskV4@4
       displayName: 'Terraform Apply'
       inputs:
         provider: 'azurerm'
         command: 'apply'
+        commandOptions: '-auto-approve -var-file="dev.tfvars"'
         environmentServiceNameAzureRM: $(azureServiceConnection)
         workingDirectory: 'network'
