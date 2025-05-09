@@ -24,6 +24,7 @@ tags = {
   }
 
 app_insights_name    = "dev-appinsights"
-#app_service_name     = "dev-appservice"
+workspace_id = "/subscriptions/25dbf701-46bd-4c97-90a4-720afab499a4/resourcegroups/ai_dev-appinsights_67178bcb-04ba-43af-b4e1-900e77604168_managed/providers/microsoft.operationalinsights/workspaces/managed-dev-appinsights-ws"
+
 
 

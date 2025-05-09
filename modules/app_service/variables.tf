@@ -52,4 +52,9 @@ variable "app_insights_name"{
   type        = string
 }
 
+variable "workspace_id" {
+  type = string
+}
+
+
 
