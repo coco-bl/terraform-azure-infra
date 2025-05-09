@@ -15,25 +15,27 @@ variables:
   backendResourceGroup: 'tf-state-devrg01'
   backendStorageAccount: 'cotfbackenddev01'
   backendContainer: 'tfstate01'
-  backendKey: 'appsdev.terraform.tfstate'
+  backendKey: 'app_service.terraform.tfstate'
 
 stages:
-- stage: Deploy_App_Service
-  displayName: 'Deploy App Service'
+- stage: Deploy_app_service
+  displayName: 'Deploy app_service Resources'
   jobs:
   - job: Terraform
-    displayName: 'Terraform for App Service'
+    displayName: 'Terraform app_service Job'
     steps:
+
     - task: TerraformInstaller@0
       displayName: 'Install Terraform'
       inputs:
         terraformVersion: 'latest'
 
-    - task: TerraformTaskV4@0
+    - task: TerraformTaskV4@4
       displayName: 'Terraform Init'
       inputs:
         provider: 'azurerm'
         command: 'init'
+        backendType: 'azurerm'
         backendServiceArm: $(azureServiceConnection)
         backendAzureRmResourceGroupName: $(backendResourceGroup)
         backendAzureRmStorageAccountName: $(backendStorageAccount)
@@ -41,24 +43,27 @@ stages:
         backendAzureRmKey: $(backendKey)
         workingDirectory: 'app_service'
 
-    - task: TerraformTaskV4@0
+    - task: TerraformTaskV4@4
       displayName: 'Terraform Validate'
       inputs:
         provider: 'azurerm'
         command: 'validate'
         workingDirectory: 'app_service'
 
-    - task: TerraformTaskV4@0
+    - task: TerraformTaskV4@4
       displayName: 'Terraform Plan'
       inputs:
         provider: 'azurerm'
         command: 'plan'
+        environmentServiceNameAzureRM: $(azureServiceConnection)
         workingDirectory: 'app_service'
+        commandOptions: '-var-file="dev.tfvars"'
 
-    - task: TerraformTaskV4@0
+    - task: TerraformTaskV4@4
       displayName: 'Terraform Apply'
       inputs:
         provider: 'azurerm'
         command: 'apply'
         environmentServiceNameAzureRM: $(azureServiceConnection)
         workingDirectory: 'app_service'
+        commandOptions: '-auto-approve -var-file="dev.tfvars"'

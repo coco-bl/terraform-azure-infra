@@ -15,25 +15,27 @@ variables:
   backendResourceGroup: 'tf-state-devrg01'
   backendStorageAccount: 'cotfbackenddev01'
   backendContainer: 'tfstate01'
-  backendKey: 'storageaccountsdev01.terraform.tfstate'
+  backendKey: 'storage_account.terraform.tfstate'
 
 stages:
-- stage: Deploy_Storage
-  displayName: 'Deploy Storage Account'
+- stage: Deploy_storage_account
+  displayName: 'Deploy storage_account Resources'
   jobs:
   - job: Terraform
-    displayName: 'Terraform for Storage Account'
+    displayName: 'Terraform storage_account Job'
     steps:
+
     - task: TerraformInstaller@0
       displayName: 'Install Terraform'
       inputs:
         terraformVersion: 'latest'
 
-    - task: TerraformTaskV4@0
+    - task: TerraformTaskV4@4
       displayName: 'Terraform Init'
       inputs:
         provider: 'azurerm'
         command: 'init'
+        backendType: 'azurerm'
         backendServiceArm: $(azureServiceConnection)
         backendAzureRmResourceGroupName: $(backendResourceGroup)
         backendAzureRmStorageAccountName: $(backendStorageAccount)
@@ -41,24 +43,27 @@ stages:
         backendAzureRmKey: $(backendKey)
         workingDirectory: 'storage_account'
 
-    - task: TerraformTaskV4@0
+    - task: TerraformTaskV4@4
       displayName: 'Terraform Validate'
       inputs:
         provider: 'azurerm'
         command: 'validate'
         workingDirectory: 'storage_account'
 
-    - task: TerraformTaskV4@0
+    - task: TerraformTaskV4@4
       displayName: 'Terraform Plan'
       inputs:
         provider: 'azurerm'
         command: 'plan'
+        environmentServiceNameAzureRM: $(azureServiceConnection)
         workingDirectory: 'storage_account'
+        commandOptions: '-var-file="dev.tfvars"'
 
-    - task: TerraformTaskV4@0
+    - task: TerraformTaskV4@4
       displayName: 'Terraform Apply'
       inputs:
         provider: 'azurerm'
         command: 'apply'
         environmentServiceNameAzureRM: $(azureServiceConnection)
         workingDirectory: 'storage_account'
+        commandOptions: '-auto-approve -var-file="dev.tfvars"'
