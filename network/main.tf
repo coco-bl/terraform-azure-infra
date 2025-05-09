@@ -13,6 +13,8 @@ module "resource_groups" {
 
 module "vnet" {
   source = "../modules/network"
+
+  depends_on = [module.resource_group]
   for_each = var.vnets
 
   vnet_name           = each.key
