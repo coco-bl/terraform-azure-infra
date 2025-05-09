@@ -1,21 +1,28 @@
-# Azure Infrastructure as Code with Terraform
+# 🚀 Terraform Azure App Service Infrastructure
 
-This repository showcases Infrastructure as Code (IaC) practices using **Terraform** to provision and manage **Azure resources** in a modular and reusable way.
+[![Build Status](https://dev.azure.com/YOUR_ORG/YOUR_PROJECT/_apis/build/status/YOUR_PIPELINE_NAME?branchName=main)](https://dev.azure.com/YOUR_ORG/YOUR_PROJECT/_build/latest?definitionId=ID&branchName=main)
 
-## 🚀 What’s Included
+This project deploys a secure and scalable **Azure App Service environment** using **Terraform** and **Azure DevOps CI/CD**. It includes:
 
-- Infrastructure build demo for Azure:
-  - Resource Group
-  - Virtual Network + Subnets
-  - Azure App Service + Plan
-  - Azure Storage + Key Vault
-- Terraform workspaces for `dev` and `prod`
-- Remote backend with Azure Storage Account
-- CI/CD with Azure repos
+- A delegated Virtual Network (VNet) with subnet
+- An App Service with subnet integration
+- A Storage Account for Terraform remote state
+- A Resource Group with consistent tagging
+- Modular, reusable Terraform codebase
+- Automated validation and deployment using Azure Pipelines
 
-## 📁 Repository Structure
+---
 
-```plaintext
-modules/         # Reusable Terraform modules
-environments/    # Dev and Prod environments
-.github/         # CI/CD GitHub Actions workflows
+## 📸 Screenshots
+
+| CI/CD Pipeline | Azure Portal Resources |
+|----------------|------------------------|
+| ![pipeline](images/pipeline-run.png) | ![azure](images/app-service.png) |
+
+> 💡 Place your images in a `images/` folder inside the repo.
+
+---
+
+## 🧱 Architecture Overview
+
+
