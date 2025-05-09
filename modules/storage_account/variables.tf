@@ -19,10 +19,9 @@ variable "account_tier" {
   default     = "Standard"
 }
 
-variable "replication_type" {
-  description = "The replication strategy for the storage account (e.g., LRS, GRS)."
-  type        = string
-  default     = "LRS"
+variable "account_replication_type" {
+  type    = string
+  default = "LRS"
 }
 
 variable "container_name" {
