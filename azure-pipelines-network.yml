@@ -55,6 +55,7 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'plan'
+        environmentServiceNameAzureRM: $(azureServiceConnection)
         workingDirectory: 'network'
         commandOptions: '-var-file="dev.tfvars"'
 
@@ -63,6 +64,6 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'apply'
-        environmentServiceNameAzureRM: 'website01'
+        environmentServiceNameAzureRM: $(azureServiceConnection)
         workingDirectory: 'network'
         commandOptions: '-auto-approve -var-file="dev.tfvars"'
