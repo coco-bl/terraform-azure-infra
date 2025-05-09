@@ -1,10 +1,10 @@
 
 output "name" {
   description = "The name of the Resource Group"
-  value       = azurerm_resource_group.this.name
+  value       = module.resource_group.resource_groups.name
 }
 
 output "location" {
   description = "The location of the Resource Group"
-  value       = azurerm_resource_group.this.location
+  value       = module.resource_group.resource_groups.location
 }

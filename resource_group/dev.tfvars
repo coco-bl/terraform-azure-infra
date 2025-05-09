@@ -1,4 +1,4 @@
-resource_group_name = "dev-rg01"
+resource_group_name = "dev-rg03"
 location            = "East US"
 
 tags = {
