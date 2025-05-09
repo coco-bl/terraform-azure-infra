@@ -1,6 +1,11 @@
 # 🚀 Terraform Azure App Service Infrastructure
 
-[![Build Status](https://dev.azure.com/AbfVentures/Website01/_apis/build/status%2Fcoco-bl.terraform-azure-infra%20(5)?branchName=main)](https://dev.azure.com/AbfVentures/Website01/_build/latest?definitionId=5&branchName=main)
+| Module          | Status |
+|------------------|--------|
+| Network          | [![Network](https://dev.azure.com/YOUR_ORG/YOUR_PROJECT/_apis/build/status/Terraform%20-%20Network?branchName=main)](https://dev.azure.com/YOUR_ORG/YOUR_PROJECT/_build/latest?definitionId=ID) |
+| App Service      | [[![Build Status](https://dev.azure.com/AbfVentures/Website01/_apis/build/status%2FApp_Service?branchName=main)](https://dev.azure.com/AbfVentures/Website01/_build/latest?definitionId=6&branchName=main)|
+| Resource Group   | ... |
+| Storage Account  | ... |
 
 This project deploys a secure and scalable **Azure App Service environment** using **Terraform** and **Azure DevOps CI/CD**. It includes:
 
