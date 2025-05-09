@@ -17,7 +17,7 @@ This project deploys a secure and scalable **Azure App Service environment** usi
 
 | CI/CD Pipeline | Azure Portal Resources |
 |----------------|------------------------|
-| ![pipeline](images/pipeline-run.png) | ![azure](images/app-service.png) |
+| ![pipeline](images/pipeline.png) | ![azure](images/appservice.png) |
 
 > 💡 Place your images in a `images/` folder inside the repo.
 
