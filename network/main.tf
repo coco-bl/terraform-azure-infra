@@ -1,24 +1,25 @@
 # Create Resource Group
-module "resource_group" {
+module "resource_groups" {
+  for_each = var.resource_groups
+
   source  = "../modules/resource_group"
-  name    = var.resource_group_name
-  location = var.location
-  tags     = var.tags
+  name    = each.key
+  location = each.value.location
+  tags     = each.value.tags
 }
+
 
 # Create Network Resources (Virtual Network, Subnets, etc.)
 
-module "network" {
-  source              = "../modules/network"
+module "vnet" {
+  source = "../modules/network"
+  for_each = var.vnets
 
-  depends_on = [module.resource_group]
-  
-  resource_group_name = var.resource_group_name
-  location            = var.location
-  vnet_name           = var.vnet_name
-  address_space       = var.vnet_address_space
-  subnets             = var.subnets
-  tags                = var.tags
-  
+  vnet_name           = each.key
+  location            = each.value.location
+  address_space  = each.value.address_space
+  resource_group_name = each.value.resource_group_name
+  subnets              = [each.value.subnet]
+  tags                = each.value.tags
 }
 

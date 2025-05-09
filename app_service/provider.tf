@@ -1,11 +1,8 @@
 provider "azurerm" {
-subscription_id = "your-subscription-id"
+subscription_id = "25dbf701-46bd-4c97-90a4-720afab499a4"
 features {}
 }
 
-resource "azurerm_resource_group" "example" {
-name = "example-resources"
-location = "West Europe"
-}
+
 
 

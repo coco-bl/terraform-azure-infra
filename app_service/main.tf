@@ -8,6 +8,9 @@ module "resource_group" {
 
 module "app_service" {
   source                = "../modules/app_service"
+
+  depends_on = [module.resource_group]
+  
   resource_group_name   = var.resource_group_name
   location              = var.location
   app_service_plan_name = var.app_service_plan_name

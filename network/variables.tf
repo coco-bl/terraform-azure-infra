@@ -1,31 +1,29 @@
-variable "resource_group_name" {
-  description = "The name of the resource group in which to create the storage account."
-  type        = string
+variable "resource_groups" {
+  description = "Map of resource groups to create"
+  type = map(object({
+    location = string
+    tags     = map(string)
+  }))
 }
 
-variable "location" {
-  description = "The Azure region where the resources will be created."
-  type        = string
+variable "vnets" {
+  description = "Map of VNet configurations"
+  type = map(object({
+    location       = string
+    address_space  = list(string)
+    resource_group_name = string
+    tags     = map(string)
+    
+    subnet = object({
+      name           = string
+      address_prefix = string
+    })
+  }))
 }
+
 
 variable "tags" {
   description = "Resource tags"
   type        = map(string)
   default     = {}
-}
-
-variable "vnet_name" {
-  type = string
-}
-
-variable "vnet_address_space" {
-  type = list(string)
-}
-
-variable "subnets" {
-  description = "List of subnet maps with name and address_prefix"
-  type = list(object({
-    name           = string
-    address_prefix = string
-  }))
 }

@@ -47,13 +47,13 @@ variable "tags" {
   default     = {}
 }
 
-variable "vnet_name" {
+variable "virtual_network_name" {
   type = string
 }
 
-variable "vnet_address_space" {
-  type = list(string)
-}
+#variable "vnet_address_space" {
+#  type = list(string)
+#}
 
 variable "subnets" {
   description = "List of subnet maps with name and address_prefix"

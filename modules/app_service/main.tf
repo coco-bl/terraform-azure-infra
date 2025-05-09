@@ -1,4 +1,4 @@
-resource "azurerm_app_service_plan" "this" {
+resource "azurerm_app_service_plan" "app_service_plan" {
   name                = var.app_service_plan_name
   location            = var.location
   resource_group_name = var.resource_group_name
@@ -13,11 +13,11 @@ resource "azurerm_app_service_plan" "this" {
   tags = var.tags
 }
 
-resource "azurerm_app_service" "this" {
+resource "azurerm_app_service" "app_service" {
   name                = var.app_service_name
   location            = var.location
   resource_group_name = var.resource_group_name
-  app_service_plan_id = azurerm_app_service_plan.this.id
+  app_service_plan_id = azurerm_app_service_plan.app_service_plan.id
 
 site_config {
     vnet_route_all_enabled = true
@@ -30,9 +30,16 @@ site_config {
     "ApplicationInsightsAgent_EXTENSION_VERSION" = "~3"
   }
 }
+
+data "azurerm_subnet" "dev-subnet01" {
+  name                 = "dev-subnet01"
+  virtual_network_name = "dev-vnet01"
+  resource_group_name  = "dev-network-rg01"
+}
+
 resource "azurerm_app_service_virtual_network_swift_connection" "vnet_integration" {
   app_service_id = azurerm_app_service.app_service.id
-  subnet_id      = azurerm_subnet.subnet.id
+  subnet_id      = data.azurerm_subnet.dev-subnet01.id
 }
 
 resource "azurerm_application_insights" "app_insights" {
