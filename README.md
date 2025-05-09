@@ -19,8 +19,6 @@ This project deploys a secure and scalable **Azure App Service environment** usi
 |----------------|------------------------|
 | ![pipeline](images/pipeline.PNG) | ![azure](images/appservice.PNG) |
 
-> 💡 Place your images in a `images/` folder inside the repo.
-
 ---
 
 ## 🧱 Architecture Overview
