@@ -1,11 +1,17 @@
-provider "azurerm" {
-subscription_id = "your-subscription-id"
-features {}
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 3.0"
+    }
+  }
 }
 
-resource "azurerm_resource_group" "example" {
-name = "example-resources"
-location = "West Europe"
+provider "azurerm" {
+  features {}
 }
+
+
+
 
 
