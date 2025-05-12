@@ -24,7 +24,7 @@ tags = {
   }
 
 app_insights_name    = "dev-appinsights"
-workspace_id = "/subscriptions/25dbf701-46bd-4c97-90a4-720afab499a4/resourcegroups/ai_dev-appinsights_67178bcb-04ba-43af-b4e1-900e77604168_managed/providers/microsoft.operationalinsights/workspaces/managed-dev-appinsights-ws"
+workspace_id = "/subscriptions/25dbf701-46bd-4c97-90a4-720afab499a4/resourceGroups/co-devrg01/providers/Microsoft.OperationalInsights/workspaces/co-dev-insights01"
 
 
 
