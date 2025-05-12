@@ -5,8 +5,16 @@ output "storage_account_names" {
   }
 }
 
+output "storage_container_names" {
+  value = {
+    for k, sa in module.storage_account :
+    k => sa.container_name
+  }
+}
 
-output "primary_access_key" {
-  value     = module.storage_account.storage_account.primary_access_key
-  sensitive = true
+output "primary_access_keys" {
+  value = {
+    for k, sa in module.storage_account :
+    k => sa.primary_access_key
+  }
 }
