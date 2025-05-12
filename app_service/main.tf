@@ -19,4 +19,5 @@ module "app_service" {
   app_settings          = var.app_settings
   tags                  = var.tags
   app_insights_name     = var.app_insights_name
+  workspace_id          = var.workspace_id
 }

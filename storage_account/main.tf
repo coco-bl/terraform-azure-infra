@@ -1,9 +1,9 @@
 module "storage_account" {
-  source              = "../modules/storage_account"
+  for_each           = var.storage_accounts
+  source             = "../modules/storage_account"
+  name               = each.value.name
+  location           = each.value.location
   resource_group_name = var.resource_group_name
-  location            = var.location
-  storage_account_name = var.storage_account_name
-  container_name       = var.container_name
-  container_access_type = var.container_access_type
-  tags                = var.tags
+  container_name     = each.value.container_name
+  tags               = each.value.tags
 }

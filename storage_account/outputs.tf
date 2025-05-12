@@ -1,10 +1,10 @@
-output "storage_account_name" {
-  value = module.storage_account.storage_account.name
+output "storage_account_names" {
+  value = {
+    for k, sa in module.storage_account :
+    k => sa.name
+  }
 }
 
-output "container_name" {
-  value = module.storage_container.storage_container.name
-}
 
 output "primary_access_key" {
   value     = module.storage_account.storage_account.primary_access_key

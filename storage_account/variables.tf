@@ -1,16 +1,11 @@
-variable "storage_account_name" {
-  description = "The name of the storage account."
-  type        = string
-}
-
-variable "resource_group_name" {
-  description = "The name of the resource group in which to create the storage account."
-  type        = string
-}
-
-variable "location" {
-  description = "The Azure region where the resources will be created."
-  type        = string
+variable "storage_accounts" {
+  type = map(object({
+    name           = string
+    resource_group = string
+    location       = string
+    container_name = string
+    tags           = map(string)
+  }))
 }
 
 variable "account_tier" {
@@ -24,20 +19,12 @@ variable "account_replication_type" {
   default = "LRS"
 }
 
-variable "container_name" {
-  description = "The name of the blob container to create in the storage account."
-  type        = string
-}
-
 variable "container_access_type" {
-  description = "Specifies whether dat"
+  description = "Access type for the storage container"
+  type        = string
+  default     = "private"
 }
 
-variable "tags" {
-  type        = map(string)
-  description = "Tags to apply"
-  default     = {}
-}
 
 variable "enable_https_traffic_only" {
   type        = bool
