@@ -12,9 +12,3 @@ output "storage_container_names" {
   }
 }
 
-output "primary_access_keys" {
-  value = {
-    for k, sa in module.storage_account :
-    k => sa.primary_access_key
-  }
-}
