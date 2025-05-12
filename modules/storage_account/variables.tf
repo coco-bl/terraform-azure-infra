@@ -16,9 +16,15 @@ variable "container_name" {
 
 variable "container_access_type" {
   type    = string
-  default = "private"
+ 
 }
 
 variable "tags" {
   type = map(string)
 }
+
+
+variable "account_replication_type" {
+  type    = string
+}
+

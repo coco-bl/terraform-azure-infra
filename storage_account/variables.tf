@@ -1,12 +1,16 @@
 variable "storage_accounts" {
+  description = "Map of storage accounts to create"
   type = map(object({
-    name           = string
-    resource_group_name = string
-    location       = string
-    container_name = string
-    tags           = map(string)
+    name                     = string
+    location                 = string
+    resource_group_name      = string
+    container_name           = string
+    account_replication_type = string
+    container_access_type    = string
+    tags                     = map(string)
   }))
 }
+
 
 variable "account_tier" {
   description = "The performance tier of the storage account (Standard or Premium)."
@@ -14,19 +18,7 @@ variable "account_tier" {
   default     = "Standard"
 }
 
-variable "account_replication_type" {
-  type    = string
-  default = "LRS"
-}
-
-variable "container_access_type" {
-  description = "Access type for the storage container"
-  type        = string
-  default     = "private"
-}
-
-
 variable "enable_https_traffic_only" {
-  type        = bool
-  default     = true
+  type    = bool
+  default = true
 }
