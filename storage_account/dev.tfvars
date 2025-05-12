@@ -1,7 +1,7 @@
 storage_accounts = {
   "backendtfstate01" = {
     name           = "cotfbackenddev01"
-    resource_group = "tf-state-devrg01"
+    resource_group_name = "tf-state-devrg01"
     location       = "eastus"
     container_name = "tfstate01"
     tags = {
@@ -10,7 +10,7 @@ storage_accounts = {
   }
   "codemostg01" = {
     name           = "codemostgacctdev01"
-    resource_group = "codemostg01"
+    resource_group_name = "codemostg01"
     location       = "eastus"
     container_name = "demo01"
     tags = {

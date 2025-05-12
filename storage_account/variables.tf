@@ -1,7 +1,7 @@
 variable "storage_accounts" {
   type = map(object({
     name           = string
-    resource_group = string
+    resource_group_name = string
     location       = string
     container_name = string
     tags           = map(string)
