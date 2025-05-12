@@ -1,6 +1,8 @@
 module "resource_groups" {
-  source  = "../modules/resource_group"
-  name    = var.resource_group_name
-  location = var.location
-  tags     = var.tags
+  for_each = var.resource_groups
+
+  source   = "../modules/resource_group"
+  name     = each.value.name
+  location = each.value.location
+  tags     = each.value.tags
 }
