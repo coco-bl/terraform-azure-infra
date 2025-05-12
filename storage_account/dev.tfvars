@@ -6,6 +6,7 @@ storage_accounts = {
     container_name           = "tfstate1"
     account_tier             = "Standard"
     account_replication_type = "LRS"
+    container_access_type    = "private"
     tags = {
       env = "dev"
     }
@@ -18,6 +19,7 @@ storage_accounts = {
     container_name           = "codemo01"
     account_tier             = "Standard"
     account_replication_type = "LRS"
+    container_access_type    = "private"
     tags = {
       env = "dev"
     }
